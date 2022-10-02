@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    stages {
+        stage ('First') {
+            parallel {
+                stage ('Build') {
+                    steps {
+                        echo 'Building .Net applocation'
+                    }
+                }
+            
+
+                stage('Test') {
+                    steps {
+                        echo 'Get driver path ${ChromeDriverPath}'
+                    }
+                }
+            }
+        }
+
+
+        stage('Deploy') {
+            steps{
+                echo 'Deploying in IIS Server'
+            }
+        
+        }
+
+    }
+    environment {
+        ChromeDriverPath = 'C:/driver/path/chrome.exe'
+    }
+    
+}
