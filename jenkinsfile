@@ -1,11 +1,11 @@
 pipeline {
     agent any
-    stages {
+    stages  { 
         stage ('First') {
             parallel {
                 stage ('Build') {
                     steps {
-                        echo 'Building .Net applocation'
+                        echo 'Building .Net applocations'
                     }
                 }
             
@@ -30,5 +30,5 @@ pipeline {
     environment {
         ChromeDriverPath = 'C:/driver/path/chrome.exe'
     }
-    
+
 }
